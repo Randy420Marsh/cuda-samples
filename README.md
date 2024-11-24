@@ -2,7 +2,7 @@
 
 Samples for CUDA Developers which demonstrates features in CUDA Toolkit. This version supports [CUDA Toolkit 11.8](https://developer.nvidia.com/cuda-downloads).
 
-git clone --branch v11.8 --recursive [https://github.com/Randy420Marsh/cpython](https://github.com/Randy420Marsh/cuda-sample.git v11.8
+git clone --branch v11.8 --recursive https://github.com/Randy420Marsh/cpython](https://github.com/Randy420Marsh/cuda-sample.git v11.8
 
 ## Release Notes
 
