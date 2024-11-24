@@ -1,26 +1,5 @@
 ## Changelog
 
-### CUDA 12.5
-
-### CUDA 12.4
-* Added graphConditionalNodes Sample
-
-### CUDA 12.3
-* Added cuDLA samples
-* Fixed jitLto regression
-
-### CUDA 12.2
-* libNVVM samples received updates
-* Fixed jitLto Case issues
-* Enabled HOST_COMPILER flag to the makefiles for GCC which is untested but may still work.
-
-### CUDA 12.1
-* Added new sample for Large Kernels
-
-### CUDA 12.0
-* Added new flags for JIT compiling 
-* Removed deprecated APIs in Hopper Architecture
-
 ### CUDA 11.6
 * Added new folder structure for samples
 * Added support of Visual Studio 2022 to all samples supported on [Windows](#windows-1).

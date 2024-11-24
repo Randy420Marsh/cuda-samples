@@ -666,7 +666,6 @@ inline int _ConvertSMVer2Cores(int major, int minor) {
       {0x80,  64},
       {0x86, 128},
       {0x87, 128},
-      {0x89, 128},
       {0x90, 128},
       {-1, -1}};
 
@@ -715,7 +714,6 @@ inline const char* _ConvertSMVer2ArchName(int major, int minor) {
       {0x80, "Ampere"},
       {0x86, "Ampere"},
       {0x87, "Ampere"},
-      {0x89, "Ada"},
       {0x90, "Hopper"},
       {-1, "Graphics Device"}};
 
