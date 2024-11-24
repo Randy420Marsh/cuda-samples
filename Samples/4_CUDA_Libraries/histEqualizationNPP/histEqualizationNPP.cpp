@@ -181,7 +181,7 @@ int main(int argc, char *argv[]) {
     NppiSize oSizeROI = {(int)oDeviceSrc.width(),
                          (int)oDeviceSrc.height()};  // full image
     // create device scratch buffer for nppiHistogram
-    size_t nDeviceBufferSize;
+    int nDeviceBufferSize;
     nppiHistogramEvenGetBufferSize_8u_C1R(oSizeROI, levelCount,
                                           &nDeviceBufferSize);
     Npp8u *pDeviceBuffer;

@@ -113,10 +113,6 @@ ifeq (,$(filter $(TARGET_OS),linux darwin qnx android))
 endif
 
 # host compiler
-ifdef HOST_COMPILER
- CUSTOM_HOST_COMPILER = 1
-endif
-
 ifeq ($(TARGET_OS),darwin)
     ifeq ($(shell expr `xcodebuild -version | grep -i xcode | awk '{print $$2}' | cut -d'.' -f1` \>= 5),1)
         HOST_COMPILER ?= clang++
@@ -169,19 +165,6 @@ CCFLAGS     :=
 LDFLAGS     :=
 
 # build flags
-
-# Link flag for customized HOST_COMPILER with gcc realpath
-GCC_PATH := $(shell which gcc)
-ifeq ($(CUSTOM_HOST_COMPILER),1)
-    ifneq ($(filter /%,$(HOST_COMPILER)),)
-        ifneq ($(findstring gcc,$(HOST_COMPILER)),)
-            ifneq ($(GCC_PATH),$(HOST_COMPILER))
-                LDFLAGS += -lstdc++
-            endif
-        endif
-    endif
-endif
-
 ifeq ($(TARGET_OS),darwin)
     LDFLAGS += -rpath $(CUDA_PATH)/lib
     CCFLAGS += -arch $(HOST_ARCH)
@@ -318,7 +301,7 @@ endif
 ifeq ($(TARGET_ARCH),$(filter $(TARGET_ARCH),armv7l aarch64 sbsa))
 SMS ?= 53 61 70 72 75 80 86 87 90
 else
-SMS ?= 50 52 60 61 70 75 80 86 89 90
+SMS ?= 35 37 50 52 60 61 70 75 80 86 90
 endif
 
 ifeq ($(SMS),)

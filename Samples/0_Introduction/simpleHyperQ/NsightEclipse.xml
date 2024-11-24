@@ -49,6 +49,8 @@
     <scope>1:Performance Strategies</scope>
     <scope>1:CUDA Systems Integration</scope>
   </scopes>
+  <sm-arch>sm35</sm-arch>
+  <sm-arch>sm37</sm-arch>
   <sm-arch>sm50</sm-arch>
   <sm-arch>sm52</sm-arch>
   <sm-arch>sm53</sm-arch>
@@ -60,7 +62,6 @@
   <sm-arch>sm80</sm-arch>
   <sm-arch>sm86</sm-arch>
   <sm-arch>sm87</sm-arch>
-  <sm-arch>sm89</sm-arch>
   <sm-arch>sm90</sm-arch>
   <supported_envs>
     <env>

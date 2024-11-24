@@ -368,11 +368,8 @@ static void parentProcess(char *app) {
     checkCudaErrors(cudaMemPoolExportToShareableHandle(
         &shareableHandles[i], pools[i], handleType, 0));
 
-    // Memset handle to 0 to make sure call to `cudaMemPoolImportPointer` in
-    // childProcess will fail if the following call to
-    // `cudaMemPoolExportPointer` fails.
-    memset((void *)&shm->exportPtrData[i], 0, sizeof(cudaMemPoolPtrExportData));
     // Get the opaque ‘bag-of-bits’ representing the allocation
+    memset((void *)&shm->exportPtrData[i], 0, sizeof(cudaMemPoolPtrExportData));
     checkCudaErrors(cudaMemPoolExportPointer(
         (cudaMemPoolPtrExportData *)&shm->exportPtrData[i], ptr));
     ptrs.push_back(ptr);

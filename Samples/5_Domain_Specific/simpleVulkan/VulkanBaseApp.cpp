@@ -31,15 +31,13 @@
  * https://vulkan-tutorial.com/
 */
 
-#include <algorithm>
-#include <fstream>
-#include <functional>
-#include <iostream>
-#include <limits>
-#include <set>
 #include <stdexcept>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+#include <functional>
+#include <set>
 #include <string.h>
-
 
 #include "VulkanBaseApp.h"
 

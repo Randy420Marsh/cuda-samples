@@ -113,10 +113,6 @@ ifeq (,$(filter $(TARGET_OS),linux darwin qnx android))
 endif
 
 # host compiler
-ifdef HOST_COMPILER
- CUSTOM_HOST_COMPILER = 1
-endif
-
 ifeq ($(TARGET_OS),darwin)
     ifeq ($(shell expr `xcodebuild -version | grep -i xcode | awk '{print $$2}' | cut -d'.' -f1` \>= 5),1)
         HOST_COMPILER ?= clang++
@@ -169,19 +165,6 @@ CCFLAGS     :=
 LDFLAGS     :=
 
 # build flags
-
-# Link flag for customized HOST_COMPILER with gcc realpath
-GCC_PATH := $(shell which gcc)
-ifeq ($(CUSTOM_HOST_COMPILER),1)
-    ifneq ($(filter /%,$(HOST_COMPILER)),)
-        ifneq ($(findstring gcc,$(HOST_COMPILER)),)
-            ifneq ($(GCC_PATH),$(HOST_COMPILER))
-                LDFLAGS += -lstdc++
-            endif
-        endif
-    endif
-endif
-
 ifeq ($(TARGET_OS),darwin)
     LDFLAGS += -rpath $(CUDA_PATH)/lib
     CCFLAGS += -arch $(HOST_ARCH)
@@ -301,6 +284,11 @@ ifeq ($(TARGET_ARCH),aarch64)
       $(info >>> WARNING - nvJPEG_encoder is not supported on aarch64-$(TARGET_OS) - waiving sample <<<)
       SAMPLE_ENABLED := 0
   endif
+endif
+# This sample is not supported on sbsa
+ifeq ($(TARGET_ARCH),sbsa)
+  $(info >>> WARNING - nvJPEG_encoder is not supported on sbsa - waiving sample <<<)
+  SAMPLE_ENABLED := 0
 endif
 
 ALL_LDFLAGS :=
